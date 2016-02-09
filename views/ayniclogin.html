@@ -1,0 +1,21 @@
+<div class="login-page">
+    <div class="form tinyform whiteback middlepadded" ng-controller='aynicLoginController'>
+        <h4 class="form-header">Login</h4>
+        <h4 class="form-error" ng-bind="loginError"></h4>
+        <form name="loginForm" ng-submit="aynicLogin($event)" novalidate>
+            <div class="username-block input-field">
+                <input type="text" name="username" ng-model="users.email" placeholder="Username" required>
+                <div class="form-error" ng-show="loginForm.username.$error.required && loginForm.username.$touched || loginForm.$submitted && !loginForm.$valid" ng-bind="'Username Required'">
+                </div>
+            </div>
+            <div class="password-block input-field">
+                <input type="password" name="password" ng-model="users.password" placeholder="Password" required>
+                <div class="form-error" ng-show="loginForm.password.$error.required && loginForm.password.$touched || loginForm.$submitted && !loginForm.$valid" ng-bind="'Password Required'">
+                </div>
+            </div>
+            <button type="submit" ng-disabled="!loginForm.$valid" ng-bind="loginStatus | undefinedFilter:'Login'"></button>
+        </form>
+        <a href="#/signup">Signup</a>
+        <!--<button ng-show="userloggedin" ng-click = "studentlogout()">Logout</button>-->
+    </div>
+</div>

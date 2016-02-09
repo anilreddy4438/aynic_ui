@@ -1,0 +1,47 @@
+<div class="login-page signup-page">
+    <div class="form tinyform whiteback middlepadded" ng-controller='aynicRegisterController'>
+
+        <form name="aynicregister" ng-submit="aynicsignup($event)" novalidate>
+            <h6 class="form-error" ng-bind="signupError"></h6>
+            <div><h4>Register</h4></div>
+
+            <div class="input-field">
+                <input type="email" id="usersemail"  ng-model="users.email "  name="usersemail" required>
+                <div  class="form-error" ng-show="aynicregister.usersemail.$touched && aynicregister.usersemail.$error.email || aynicregister.$submitted && !aynicregister.$valid" ng-bind="'valid email'"></div>
+                <div  class="form-error" ng-show="aynicregister.usersemail.$touched && aynicregister.usersemail.$error.required || aynicregister.$submitted && !aynicregister.$valid" ng-bind="'required email'" ></div>
+
+                <label for="usersemail" >Email</label>
+            </div>
+            <div class="input-field">
+                <input type="password" name="password" ng-model="users.password" id="userspassword" required >
+                <div  class="form-error" ng-show="aynicregister.password.$touched && aynicregister.password.$error.required || aynicregister.$submitted && !aynicregister.$valid" ng-bind="'required password'"></div>
+                <label for="userspassword">Password</label>
+            </div>
+            <div class="input-field">
+                <input type="number" id="usersphone" ng-model="users.phone" ng-minlength="10" ng-maxlength="10" name="phone"  required>
+                <div  class="form-error" ng-show="aynicregister.usersphone.$touched && aynicregister.usersphone.$error.required || aynicregister.$submitted && !aynicregister.$valid" ng-bind="'required'"> </div>
+                <div  class="form-error" ng-show="aynicregister.usersphone.$touched && aynicregister.usersphone.$error.maxlength||aynicregister.usersphone.$error.minlength  || aynicregister.$submitted && !aynicregister.$valid" ng-bind="'Check Your PhoneNumber'"> </div>
+
+                <label for="usersphone">Phone Number</label>
+            </div>
+
+            <div class="input-field">
+                <input type="email" id="userssecondaryemail"  ng-model="users.secondaryEmail "  name="userssecondaryemail" required>
+                <div  class="form-error" ng-show="aynicregister.userssecondaryemail.$touched && aynicregister.userssecondaryemail.$error.email || aynicregister.$submitted && !aynicregister.$valid" ng-bind="'valid email'"></div>
+                <div  class="form-error" ng-show="aynicregister.userssecondaryemail.$touched && aynicregister.userssecondaryemail.$error.required || aynicregister.$submitted && !aynicregister.$valid" ng-bind="'required email'" ></div>
+
+                <label for="userssecondaryemail" >secondaryEmail</label>
+            </div>
+
+            <div class="input-field">
+                <input type="text" name="usersName" ng-model="users.name" id="usersname" required >
+                <div  class="form-error" ng-show="aynicregister.usersName.$touched && aynicregister.usersName.$error.required || aynicregister.$submitted && !aynicregister.$valid" ng-bind="'required'"> </div>
+                <label for="usersname">Name</label>
+            </div>
+
+            <button type="submit" ng-disabled="!aynicregister.$valid" value="Signup">Register</button>
+        </form>
+        <a href="#/login">Login</a>
+        <!--<a href="/student_signup.html">Signup here</a>-->
+    </div>
+</div>
